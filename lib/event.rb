@@ -30,9 +30,14 @@ class Event
   items.sort
   end
 
-  # def total_inventory
-  #   @food_trucks.each do |truck|
-  #
-  #   end
-  # end
+  def total_inventory
+    inventory = {}
+    all_items.each do |item|
+      unless inventory[item]
+        inventory[item] = {quantity: 0, food_trucks: food_trucks_that_sell(item) }
+      end
+      inventory[item][:quantity] = @food_trucks.sum{|truck| truck.check_stock(item)}
+    end
+    inventory
+  end
 end
