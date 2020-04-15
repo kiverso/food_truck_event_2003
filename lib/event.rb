@@ -25,6 +25,11 @@ class Event
     items.flatten.uniq
   end
 
+  def sorted_item_list
+  items = all_items.map { |item| item.name }
+  items.sort
+  end
+
   # def total_inventory
   #   @food_trucks.each do |truck|
   #

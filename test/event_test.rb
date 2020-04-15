@@ -68,6 +68,15 @@ class EventTest < Minitest::Test
     assert_equal 4, @event.all_items.length
   end
 
+  def test_it_can_get_sorted_items
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    expected = ["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"]
+    assert_equal expected, @event.sorted_item_list
+  end
+
   # def test_it_can_get_total_inventory
   #   expected = {@item1 => {quantity: 100, food_trucks: [@food_truck1, @food_truck3]},
   #               @item2 => {quantity: 7, food_trucks: [@food_truck2]},
