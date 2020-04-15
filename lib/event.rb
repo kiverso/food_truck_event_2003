@@ -1,6 +1,7 @@
 class Event
-  def initialize(name)
+  attr_reader :name, :food_trucks
+  def initialize(name, food_trucks = [])
     @name = name
-    
+    @food_trucks = food_trucks
   end
 end
