@@ -56,11 +56,23 @@ class EventTest < Minitest::Test
     assert_equal [@food_truck2], @event.food_trucks_that_sell(@item4)
   end
 
-  def test_it_can_get_total_inventory
-    expected = {@item1 => {quantity: 100, food_trucks: [@food_truck1, @food_truck3]},
-                @item2 => {quantity: 7, food_trucks: [@food_truck2]},
-                @item3 => {quantity: 35, food_trucks: [@food_truck2, @food_truck3]},
-                @item4 => {quantity: 50, food_trucks: [@food_truck2]}
-                }
+  def test_it_can_get_all_items
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    assert_equal true, @event.all_items.include?(@item1)
+    assert_equal true, @event.all_items.include?(@item2)
+    assert_equal true, @event.all_items.include?(@item3)
+    assert_equal true, @event.all_items.include?(@item4)
+    assert_equal 4, @event.all_items.length
   end
+
+  # def test_it_can_get_total_inventory
+  #   expected = {@item1 => {quantity: 100, food_trucks: [@food_truck1, @food_truck3]},
+  #               @item2 => {quantity: 7, food_trucks: [@food_truck2]},
+  #               @item3 => {quantity: 35, food_trucks: [@food_truck2, @food_truck3]},
+  #               @item4 => {quantity: 50, food_trucks: [@food_truck2]}
+  #               }
+  # end
 end

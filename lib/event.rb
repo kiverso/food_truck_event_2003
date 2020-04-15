@@ -18,4 +18,16 @@ class Event
       truck.inventory.keys.include?(item)
     end
   end
+
+  def all_items
+    items = @food_trucks.map { |truck| truck.inventory.keys }
+    # require "pry"; binding.pry
+    items.flatten.uniq
+  end
+
+  # def total_inventory
+  #   @food_trucks.each do |truck|
+  #
+  #   end
+  # end
 end
