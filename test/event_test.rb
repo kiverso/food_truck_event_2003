@@ -55,18 +55,3 @@ class EventTest < Minitest::Test
     assert_equal [@food_truck2], @event.food_trucks_that_sell(@item4)
   end
 end
-
-# pry(main)> event.food_trucks_that_sell(item1)
-# #=> [#<FoodTruck:0x00007fe1348a1160...>, #<FoodTruck:0x00007fe134910650...>]
-#
-# pry(main)> event.food_trucks_that_sell(item4)
-# #=> [#<FoodTruck:0x00007fe1349bed40...>]
-#
-# pry(main)> food_truck1.potential_revenue
-# #=> 148.75
-#
-# pry(main)> food_truck2.potential_revenue
-# #=> 345.00
-#
-# pry(main)> food_truck3.potential_revenue
-# #=> 243.75
