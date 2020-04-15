@@ -18,6 +18,12 @@ class EventTest < Minitest::Test
   def test_it_exists
     assert_instance_of Event, @event
   end
+
+  def test_it_has_readable_attributes
+    expected = "South Pearl Street Farmers Market"
+    assert_equal expected, @event.name
+    assert_equal [], @event.food_trucks
+  end
 end
 
 # pry(main)> event.food_trucks
